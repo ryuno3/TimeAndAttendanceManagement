@@ -3,9 +3,12 @@ package com.example.TimeAndAttendanceManagement.service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import org.springframework.stereotype.Service;
+
 import com.example.TimeAndAttendanceManagement.domain.model.AttendanceRecord;
 import com.example.TimeAndAttendanceManagement.repository.AttendanceRepository;
 
+@Service
 public class AttendanceService {
     private final AttendanceRepository repository;
 
@@ -36,5 +39,9 @@ public class AttendanceService {
         }else{
             System.out.println("出勤記録が見つかりません");
         }
+    }
+
+    public AttendanceRecord getTodayAttendance(int employeeId){
+        return getTodayRecord(employeeId);
     }
 }
